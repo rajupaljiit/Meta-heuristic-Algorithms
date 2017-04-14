@@ -1,19 +1,20 @@
+
 clear
 clc
 warning off
 
-x1min=-1.2;
-x1max=1.2;
-x2min=-1.2;
-x2max=1.2;
+x1min=-1.5;
+x1max=4;
+x2min=-3;
+x2max=4;
 R=1500; % steps resolution
 x1=x1min:(x1max-x1min)/R:x1max;
 x2=x2min:(x2max-x2min)/R:x2max;
-    
+
 for j=1:length(x1)
     
     for i=1:length(x2)
-        f(i)=100*(x2(i)-x1(j).^3).^2+(1-x1(j)).^2;
+        f(i)=-1.5*x1(j)+2.5*x2(i)+(x1(j)-x2(i)).^2+sin(x1(j)+x2(i))+1;
     end
     
     f_tot(j,:)=f;
